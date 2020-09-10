@@ -1,0 +1,147 @@
+.Home {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .Home-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .Home-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .Home-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .Home-link {
+    color: #61dafb;
+  }
+  
+  @keyframes Home-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  input {
+    width: 70%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  label {
+    
+    padding: 12px 12px 12px 0px;
+    display: inline-block;
+    
+  }
+  
+  input[type=submit] {
+    width: 25%;
+    height: 25%;
+    background-color: #b84848;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  body {
+    color: grey;
+      text-align: center;
+  }
+  
+  .headjs {
+      align-content: center;
+      height: 40%;
+      width: 100%;
+      color: white;
+      text-align: center;
+      background-color: #4296e0;
+      background-clip: content-box;
+      background: #242b22; 
+      left: 0;
+      top: 0;
+      bottom: 0;
+      position: relative;
+  }
+  
+  .midpart{
+      align-content: center;
+      height: 55%;
+      width: 100%;
+      border-width: 1px;
+      background: #FFFFFF; 
+      left: 0;
+      top: 0;
+      bottom: 0;
+      position: relative;
+      color: black;
+  }
+  
+  .formblock{
+      align-content: center;
+      padding: 3%;
+      border-radius: 5px;
+      border-width: 1px;
+      border-style: ridge;
+      background: #FFFFFF; 
+      left: 0;
+      top: 0;
+      bottom: 0;
+      position: relative;
+  }
+  .test{
+    padding: 2%;
+    height: 40%
+  }
+
+  #Results {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 60%;
+  }
+  
+  #Results td, #Results th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #Results tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #Results tr:hover {background-color: #ddd;}
+  
+  #Results th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #131613;
+    color: white;
+  }
