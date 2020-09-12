@@ -1,0 +1,4 @@
+ProjectID,Name,Size,Budget,isAssignmentComplete,Priority,ProjectEndDate
+Proj1,Project1,3,7500,0,low,20-12-2020
+Proj2,Project2,3,6500,0,High,20-11-2020
+Proj3,Project3,2,4500,0,low,20-10-2020
