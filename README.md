@@ -1,4 +1,4 @@
-# TeamFormationAssistant
+# Team Formation Assistant
 ## Problem Statement
 Build an assistant which will take the project requirements, team members
 availability, skill level, tools preferred, etc. as input and assigns the members for
