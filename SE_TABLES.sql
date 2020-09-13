@@ -32,8 +32,9 @@ CREATE TABLE Project(
 
 CREATE TABLE Team(
 	ProjectId	INT NOT NULL REFERENCES Member(MemberId),
+	ProjectName varchar(30),
 	MemberId	INT NOT NULL REFERENCES Project(ProjectId),
-    MemberName		VARCHAR(30) NOT NULL
+    	MemberName		VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE Requirements(
