@@ -20,11 +20,6 @@ CREATE TABLE Project(
 	ProjectTeamSize					INT,
 	Budget					FLOAT,
 	Tools					VARCHAR(100),
-	SkillWeight				INT,
-	ExperienceWeight		INT,
-	HoursWeight				INT,
-	LanguageWeight			INT,
-	BudgetWeight			INT,
 	IsAssignmentComplete	INT,
 	Priority				INT,
 	PRIMARY KEY (ProjectId)
@@ -38,10 +33,16 @@ CREATE TABLE Team(
 );
 
 CREATE TABLE Requirements(
+	JobId					INT NOT NULL AUTO_INCREMENT,
 	ProjectId				INT NOT NULL REFERENCES Project(ProjectId),
-	MemberNumber			INT,
 	LanguagePreferred 				VARCHAR(20) NOT NULL,
 	Skill					INT NOT NULL,
 	MemberRole					VARCHAR(20),
-	AvailableHoursPerWeek	INT
+	AvailableHoursPerWeek	INT,
+	SkillWeight				INT,
+	ExperienceWeight		INT,
+	HoursWeight				INT,
+	LanguageWeight			INT,
+	BudgetWeight			INT,
+	PRIMARY KEY (JobId)
 );
