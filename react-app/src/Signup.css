@@ -74,7 +74,7 @@
   }
   
   body {
-    color: grey;
+    color: rgb(19, 17, 17);
       text-align: center;
   }
   
@@ -117,8 +117,13 @@
       top: 0;
       bottom: 0;
       position: relative;
+      border-color: black;
   }
   .test{
     padding: 2%;
     height: 40%
+  }
+
+  .h4seg{
+    color: green;
   }

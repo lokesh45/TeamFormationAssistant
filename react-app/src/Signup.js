@@ -7,8 +7,9 @@ class Signup extends Component {
   {
     super(props);
     this.state={
-      name:'',
+      formflag: this.props.formflag,
     }
+    console.log(props[0]);
   }
   handlChange= (event) =>{
     event.preventDefault();
@@ -16,6 +17,7 @@ class Signup extends Component {
     this.setState({[name]:value});
     console.log(this.state);
   }
+  
   render(){
   return (
     <div className="Signup" align = 'center'>
@@ -43,6 +45,7 @@ class Signup extends Component {
       <div className="midpart">
           <h2 align="center">Team Member Details (Sign Up)</h2>
       </div>
+      <Notify isShow={this.state.formflag} />
       <div className = "test">
         <div className="formblock">
           <form method= 'post' align = 'center' action = 'http://localhost:3001/Signup'>
@@ -103,5 +106,8 @@ class Signup extends Component {
   );
   }
 }
+
+const Notify = ({ isShow }) =>
+  isShow ? <p><h4 align="center" className = "h4seg">Form Received. Please visit Home Page after some time to view Project assignment.</h4></p> : null;
 
 export default Signup;

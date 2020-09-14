@@ -27,19 +27,29 @@ app.get('/',(req,res)=>{
   res.json('Server is Up... OK');
 })
 
+app.get('/getResults', (req, res) => {
+    con.query('SELECT * from Team', function(err, rows, fields) {
+        if (!err) {
+            res.send(rows);
+        } else {
+            console.log('Error while performing Query.');
+        }	
+    });
+});
+
 app.post('/Signup',(req,res)=>{
 	var records = [[req.body.name,req.body.hourlyrate,req.body.dob,req.body.languages,0,req.body.memberrole,req.body.experience,req.body.skillscore,req.body.availablehoursperweek]];
 	if(records[0][0]!=null)
 	{
 		con.query("INSERT INTO Member (MemberName,HourlyRate,DOB,Languages,IsAssigned,MemberRole,Experience,SkillScore,AvailableHoursPerWeek) VALUES ?",[records],function(err,res,fields){
 
-			if(err) throw err;
+		if(err) throw err;
 
 			console.log(res);
 		});
 	}
 	//res.json('Form received...Thank You for signing up :D');
-	return res.redirect('http://localhost:3000/1',);
+	return res.redirect('http://localhost:3000/Signup/Success');
 })
 
 app.post('/ProjectDetails',(req,res)=>{
@@ -53,8 +63,9 @@ app.post('/ProjectDetails',(req,res)=>{
 			console.log(res);
 		});
 	}
+	
 	//res.json('Form received...Thank You for signing up :D');
-	return res.redirect('http://localhost:3000/',);
+	return res.redirect('http://localhost:3000/ProjectDetails/Success');
 })
 
 app.listen(3001,()=>{

@@ -3,7 +3,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Home from './Home';
+import Form from './fullform';
 import Signup from './Signup';
 import ProjectDetails from './ProjectDetails';
 import './App.css';
@@ -22,13 +22,19 @@ class App extends Component {
     <Switch>
       {/* If the current URL is /Signup, this route is rendered
           while the rest are ignored */}
+      <Route path="/Signup/Success">
+        <Signup formflag={true}/>
+      </Route>
       <Route path="/Signup">
-        <Signup />
+        <Signup formflag={false} />
       </Route>
       {/* If the current URL is /ProjectDetails, this route is rendered
           while the rest are ignored */}
+      <Route path="/ProjectDetails/Success">
+        <ProjectDetails formflag={true} />
+      </Route>
       <Route path="/ProjectDetails">
-        <ProjectDetails />
+        <ProjectDetails  formflag={false} />
       </Route>
 
       {/* If none of the previous routes render anything,
@@ -38,7 +44,7 @@ class App extends Component {
           the URL because all URLs begin with a /. So that's
           why we put this one last of all */}
       <Route path="/">
-        <Home />
+        <Form />
       </Route>
     </Switch>
   </div>
