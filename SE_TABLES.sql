@@ -1,4 +1,10 @@
-USE teamformationassistant;
+#USE teamformationassistant;
+
+#DROP TABLE IF EXISTS Member;
+#DROP TABLE IF EXISTS Project;
+#DROP TABLE IF EXISTS Team;
+#DROP TABLE IF EXISTS Requirements;
+
 CREATE TABLE Member(
 	MemberId				INT NOT NULL AUTO_INCREMENT,
 	MemberName					VARCHAR(30) NOT NULL, 
