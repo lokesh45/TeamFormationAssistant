@@ -1,25 +1,41 @@
 import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
 import './Home.css';
+import * as ReactBootstrap from "react-bootstrap";
 
 class Home extends Component {
-  constructor(props)
-  {
+  constructor(props) {
     super(props);
-    this.state={
-      name:'',
-      languages:'',
-      hourlyrate:'',
-      dob:''
-    }
+    this.state = {
+      data: []
+    };
+
+}
+
+
+componentDidMount() {
+  const apiUrl = 'http://localhost:3001/getResults';
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => this.setState({data: data}));
+  var newData = this.state.data.concat([this.state.data]);  
+  this.setState({data: newData})
+    
+}
+
+ renderTeam(response, index){
+    return(
+      <tr key={index}>
+        <td>{response.ProjectId}</td>
+        <td>{response.ProjectName}</td>
+        <td>{response.MemberId}</td>
+        <td>{response.MemberName}</td>
+      </tr>
+    )
   }
-  handlChange= (event) =>{
-    event.preventDefault();
-    const {name, value} = event.target;
-    this.setState({[name]:value});
-    console.log(this.state);
-  }
+
   render(){
+    console.log(this.state)
   return (
     <div className="Home" align = 'center'>
       	<div className="headjs">
@@ -47,19 +63,24 @@ class Home extends Component {
           <h2 align="center">Project Assignments by Assistant</h2>
       </div>
       <div className = "test">
-      <div className="formblock" align = 'center'>
-          <table>
-            <thead>
-              <th>id</th>
-              <th>name</th>
-            </thead>
-            <tbody id="place-here"></tbody>
-          </table>
+        <div className="formblock" align = 'center'>
+            <ReactBootstrap.Table striped bordered hover>
+              <thead class="thead-dark">
+                <tr>
+                  <th>Project ID</th>
+                  <th>Project Name</th>
+                  <th>Member ID</th>
+                  <th>Member Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.data.map(this.renderTeam)}
+              </tbody>
+            </ReactBootstrap.Table>
         </div>
       </div>
     </div>
   );
   }
 }
-
 export default Home;
