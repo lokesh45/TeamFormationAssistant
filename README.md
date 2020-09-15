@@ -12,6 +12,8 @@ data.<br/>
 ➢ Write an algorithm which will take the project requirements, team
 members availability, skill level, tools preferred, etc. as input and assigns
 the members for the new team.<br/>
+## Video link for Project-1
+https://www.youtube.com/watch?v=LmKjp3aQPEI&feature=youtu.be <br/>
 ## How we plan to carry out the project
 ### Algorithm Implementation
 We plan to code the application in Python3. Python ML libraries will be used for
