@@ -7,9 +7,8 @@ class Signup extends Component {
   {
     super(props);
     this.state={
-      formflag: this.props.formflag,
+      formflag: this.props.formflag
     }
-    console.log(props[0]);
   }
   handlChange= (event) =>{
     event.preventDefault();

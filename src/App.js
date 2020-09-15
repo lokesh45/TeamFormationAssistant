@@ -3,7 +3,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Form from './fullform';
+import Home from './Home';
 import Signup from './Signup';
 import ProjectDetails from './ProjectDetails';
 import './App.css';
@@ -44,7 +44,7 @@ class App extends Component {
           the URL because all URLs begin with a /. So that's
           why we put this one last of all */}
       <Route path="/">
-        <Form />
+        <Home />
       </Route>
     </Switch>
   </div>

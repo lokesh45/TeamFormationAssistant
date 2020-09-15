@@ -53,10 +53,10 @@ app.post('/Signup',(req,res)=>{
 })
 
 app.post('/ProjectDetails',(req,res)=>{
-	var records = [[req.body.name,req.body.enddate,req.body.teamsize,req.body.budget,req.body.tools,req.body.priority,req.body.skillweight,req.body.experienceweight,req.body.hoursweight,req.body.languageweight,req.body.budgetweight,0]];
+	var records = [[req.body.name,req.body.enddate,req.body.teamsize,req.body.budget,req.body.tools,req.body.priority,0]];
 	if(records[0][0]!=null)
 	{
-		con.query("INSERT INTO Project (ProjectName,ProjectEndDate,ProjectTeamSize,Budget,Tools,Priority,SkillWeight,ExperienceWeight,HoursWeight,LanguageWeight,BudgetWeight,IsAssignmentComplete) VALUES ?",[records],function(err,res,fields){
+		con.query("INSERT INTO Project (ProjectName,ProjectEndDate,ProjectTeamSize,Budget,Tools,Priority,IsAssignmentComplete) VALUES ?",[records],function(err,res,fields){
 
 			if(err) throw err;
 

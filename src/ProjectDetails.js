@@ -6,6 +6,7 @@ class ProjectDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            formflag: this.props.formflag,
             teamMembers: [
                 {
                     languagepreferred: "",
@@ -22,10 +23,14 @@ class ProjectDetails extends Component {
         };
     }
     handleChange = (e) => {
-        if (["languagepreferred", "skill", "memberrole", "availablehoursperweek", "skillweight", "experienceweight", "hoursweight", "languageweight", "budgetweight"].includes(e.target.className) ) {
-            console.log(this.state)
+        
+        console.log(this.state)
+        var tempclassname = e.target.className.split(" ");
+        console.log(tempclassname, e.target.dataset.id,e.target.className)
+        if (["languagepreferred", "skill", "memberrole", "availablehoursperweek", "skillweight", "experienceweight", "hoursweight", "languageweight", "budgetweight"].includes(tempclassname[0]) ) {
+            
             let teamMembers = [...this.state.teamMembers]
-          teamMembers[e.target.dataset.id][e.target.className] = e.target.value.toUpperCase()
+          teamMembers[e.target.dataset.id][tempclassname[0]] = e.target.value.toUpperCase()
           this.setState({ teamMembers }, () => console.log(this.state.teamMembers))
         } else {
           this.setState({ [e.target.name]: e.target.value.toUpperCase() })
