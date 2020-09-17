@@ -108,7 +108,7 @@
   
   .formblock{
       align-content: center;
-      padding: 3%;
+      padding: 2%;
       border-radius: 5px;
       border-width: 1px;
       border-style: ridge;
@@ -119,29 +119,6 @@
       position: relative;
   }
   .test{
-    padding: 2%;
+    padding: 6%;
     height: 40%
-  }
-
-  #Results {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 60%;
-  }
-  
-  #Results td, #Results th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  #Results tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #Results tr:hover {background-color: #ddd;}
-  
-  #Results th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #131613;
-    color: white;
   }

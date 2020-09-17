@@ -6,9 +6,13 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+<<<<<<< HEAD
     "express": "^4.17.1",
     "express-validator": "^6.6.1",
     "node-input-validator": "^4.2.1",
+=======
+    "axios": "^0.20.0",
+>>>>>>> 4c51331470123adfe30f778ee1489d8d3c5b00ce
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
     "react-dom": "^16.13.1",

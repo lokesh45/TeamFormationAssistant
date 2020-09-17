@@ -34,7 +34,7 @@ app.get('/getResults', (req, res) => {
         } else {
             console.log('Error while performing Query.');
         }	
-    });
+	});
 });
 
 app.post('/Signup',(req,res)=>{
@@ -45,7 +45,7 @@ app.post('/Signup',(req,res)=>{
 
 		if(err) throw err;
 
-			console.log(res);
+		console.log(res);
 		});
 	}
 	//res.json('Form received...Thank You for signing up :D');
