@@ -171,15 +171,15 @@ class ProjectDetails extends Component {
                             </div>
                             {
                             teamMembers.map((val, idx) => {
-                            let languagepreferredId = `languagepreferred-${idx}`,
-                            skillId = `skill-${idx}`,
-                            memberroleId = `memberrole-${idx}`,
-                            availablehoursperweekId = `availablehoursperweek-${idx}`,
-                            skillweightId = `skillweight-${idx}`,
-                            experienceweightId = `experienceweight-${idx}`,
-                            hoursweightId = `hoursweight-${idx}`,
-                            languageweightId = `languageweight-${idx}`,
-                            budgetweightId = `budgetweight-${idx}`;
+                            let languagepreferredId = `languagepreferred${idx}`,
+                            skillId = `skill${idx}`,
+                            memberroleId = `memberrole${idx}`,
+                            availablehoursperweekId = `availablehoursperweek${idx}`,
+                            skillweightId = `skillweight${idx}`,
+                            experienceweightId = `experienceweight${idx}`,
+                            hoursweightId = `hoursweight${idx}`,
+                            languageweightId = `languageweight${idx}`,
+                            budgetweightId = `budgetweight${idx}`;
                             return (
                             <div key={idx} >
                             <div className="test border border-dark rounded">

@@ -53,6 +53,7 @@ app.post('/Signup',(req,res)=>{
 })
 
 app.post('/ProjectDetails',(req,res)=>{
+	console.log(req.body);
 	var records = [[req.body.name,req.body.enddate,req.body.teamsize,req.body.budget,req.body.tools,req.body.priority,0]];
 	if(records[0][0]!=null)
 	{
