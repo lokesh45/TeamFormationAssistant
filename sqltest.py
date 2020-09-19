@@ -17,10 +17,10 @@ def executeScriptsFromFile(filename):
 
 
 connection = mysql.connector.connect(
-    host="85.10.205.173",
-    database='unithmallavaram',
-    user="unithm",
-    password="password"
+    host="sefall2021.cosnmrdyk6wi.us-east-2.rds.amazonaws.com",
+    database='teamformationassistant',
+    user="root",
+    password="SEFall2021"
 )
 
 if connection.is_connected():
