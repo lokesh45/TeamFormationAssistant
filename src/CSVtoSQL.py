@@ -33,17 +33,19 @@ def verifyDatabaseConnection():
         connection.close()
 
 def loadEmployeeDataFromCSV():
-    EmployeeData     = pd.read_csv("../DataSet/Employee.csv")
-    df = pd.DataFrame(EmployeeData, columns= ['MemberID','Name','TeamID',
+    EmployeeData = pd.read_csv("../DataSet/Employee.csv")
+    EmployeeData.columns = ['MemberID','Name','TeamID',
                      'Languages','Role','HourlyRate','DOB','Experience',
-                     'SkillScore','Availibility','isAssigned'])
-
+                     'SkillScore','Availibility','isAssigned']
     if connection.is_connected():
         cursor = connection.cursor()
-        #cursor.execute('CREATE TABLE Employee(MemberID int, Name nvarchar(50), TeamID int, Languages nvarchar(50), Role nvarchar(50), HourlyRate int, DOB nvarchar(50), Experience int,SkillScore int,Availibility int,isAssigned int)')
-        for row in df.itertuples():
-            sql = "INSERT INTO Employee(MemberID,Name,TeamID,Languages,Role,HourlyRate,DOB,Experience,SkillScore,Availibility,isAssigned) VALUES(%d,%s,%d,%s,%s,%d,%s,%d,%d,%d,%d);"
-            cursor.executemany(sql, (row.MemberID,row.Name,row.TeamID,row.Languages,row.Role,row.HourlyRate,row.DOB,row.Experience,row.SkillScore,row.Availibility,row.isAssigned))
+        cursor.execute('DROP TABLE IF EXISTS Employee;')
+        cursor.execute('CREATE TABLE Employee(MemberID nvarchar(50), Name nvarchar(50), TeamID nvarchar(50), Languages nvarchar(50), Role nvarchar(50), HourlyRate nvarchar(50), DOB nvarchar(50), Experience nvarchar(50),SkillScore nvarchar(50),Availibility nvarchar(50),isAssigned nvarchar(50))')
+        for row in EmployeeData.index:
+            sql = "INSERT INTO Employee(MemberID,Name,TeamID,Languages,Role,HourlyRate,DOB,Experience,SkillScore,Availibility,isAssigned)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
+            cursor.execute(sql,(str(EmployeeData.loc[row, 'MemberID']),str(EmployeeData.loc[row, 'Name']),str(EmployeeData.loc[row, 'TeamID']),str(EmployeeData.loc[row, 'Languages']),
+            str(EmployeeData.loc[row,'Role']),str(EmployeeData.loc[row,'HourlyRate']),str(EmployeeData.loc[row, 'DOB']),
+            str(EmployeeData.loc[row, 'Experience']),str(EmployeeData.loc[row,'SkillScore']),str(EmployeeData.loc[row, 'Availibility']),str(EmployeeData.loc[row, 'isAssigned'])))
         connection.commit()
 
 if __name__=="__main__": 
