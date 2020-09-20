@@ -5,8 +5,12 @@ import "./ProjectDetails.css";
 class ProjectDetails extends Component {
     constructor(props) {
         super(props);
+        
         this.state = {
+            count: 0,
             formflag: this.props.formflag,
+            fields: {},
+            errors: {},
             teamMembers: [
                 {
                     languagepreferred: "",
@@ -21,6 +25,7 @@ class ProjectDetails extends Component {
                 }
             ]
         };
+        this.handleChange = this.handleChange.bind(this);
     }
     handleChange = (e) => {
         
@@ -35,8 +40,117 @@ class ProjectDetails extends Component {
         } else {
           this.setState({ [e.target.name]: e.target.value.toUpperCase() })
         }
-        
+        e.preventDefault();
+    let fields = this.state.fields;
+    fields[e.target.name] = e.target.value;
+    this.setState({
+      fields
+    });
+    this.validateForm(); 
       }
+      contactSubmit(e){
+        
+
+        if(!this.validateForm()){
+          e.preventDefault();
+           alert("Form has errors,please correct them");
+        }
+        
+    }
+    
+      validateForm() {
+        let fields = this.state.fields;
+          let errors = {};
+          let formIsValid = true;
+        
+        var date = new Date(fields["enddate"]);
+        var date2 = new Date(Date.now());
+        var datediff = date.getMonth() - date2.getMonth();
+        var totalweight = 0;
+        
+        console.log(totalweight);
+        
+        if(datediff<1){
+            formIsValid = false;
+            // this.state.fields["enddate"]="";
+            errors["enddate"] = "*Please enter a valid date.(Atleast one month from today)";
+          }
+          if(fields["teamsize"]<0 || fields["teamsize"]>12){
+            formIsValid = false;
+            // this.state.fields["teamsize"]="";
+            errors["teamsize"] = "*Please enter a valid teamsize.(0-12)";
+          }
+          if(fields["budget"]<0 || fields["budget"]>250000000){
+            formIsValid = false;
+            // this.state.fields["budget"]="";
+            errors["budget"] = "*Please enter a valid budget";
+          }
+          if(fields["skillweight"]<0 || fields["skillweight"]>100){
+            formIsValid = false;
+            // this.state.fields["skillweight"]="";
+            errors["skillweight"] = "*Please enter a valid skill weight(0-100)";
+          }
+          else{
+            totalweight += parseInt( fields["skillweight"]);
+          
+          }
+       
+          if(fields["experienceweight"]<0 || fields["experienceweight"]>100){
+            formIsValid = false;
+            // this.state.fields["experienceweight"]="";
+            errors["experienceweight"] = "*Please enter a valid experience weight(0-100)";
+          }
+          else{
+            totalweight += parseInt( fields["experienceweight"]);
+           
+          }
+       
+          if(fields["languageweight"]<0 || fields["languageweight"]>100){
+            formIsValid = false;
+            // this.state.fields["languageweight"]="";
+            errors["languageweight"] = "*Please enter a valid language weight(0-100)";
+          }
+          else{
+            totalweight += parseInt( fields["languageweight"]);
+           
+          }
+       
+          if(fields["hoursweight"]<0 || fields["hoursweight"]>100){
+            formIsValid = false;
+            // this.state.fields["hoursweight"]="";
+            errors["hoursweight"] = "*Please enter a valid hours weight(0-100)";
+            
+          }
+          else{
+            totalweight += parseInt( fields["hoursweight"]);
+         
+          }
+       
+        if(fields["budgetweight"]<0 || fields["budgetweight"]>100){
+          formIsValid = false;
+          // this.state.fields["budgetweight"]="";
+          errors["budgetweight"] = "*Please enter a valid budget weight(0-100)";
+          
+        }
+        else{
+          totalweight += parseInt( fields["budgetweight"]);
+        
+        }
+        
+        if (typeof fields["skillweight"] !== "undefined" && typeof fields["languageweight"] !=="undefined" && typeof fields["budgetweight"] !== "undefined" && typeof fields["experienceweight"] !== "undefined" && typeof fields["hoursweight"] !== "undefined") {
+          if (totalweight!==100) {
+            formIsValid = false;
+          
+          
+            errors["weight"] = "*Please enter valid weights(sum must be 100)";
+          }
+        }
+        
+        this.setState({
+            errors: errors
+          });
+          return formIsValid;
+    }
     addmember = (e) => {
         console.log("Add member funtion");
         console.log(this.state)
@@ -94,6 +208,7 @@ class ProjectDetails extends Component {
                             method="post"
                             align="center"
                             onChange={this.handleChange}
+                            onSubmit= {this.contactSubmit.bind(this)}
                             action = "http://localhost:3001/ProjectDetails"
                             >
                             <div className="form-row">
@@ -102,7 +217,10 @@ class ProjectDetails extends Component {
                                 Project Name
                                 </label>
                                 <input
+                                    
                                     type="text"
+                                    value={this.state.fields.name} 
+                                    onChange={this.handleChange}
                                     className="form-control"
                                     name="name"
                                     required
@@ -114,11 +232,15 @@ class ProjectDetails extends Component {
                                 </label>
                                 <input
                                     type="date"
+                                    value={this.state.fields.enddate} 
+                                    onChange={this.handleChange}
                                     className="form-control"
                                     name="enddate"
                                     required
                                     />
                             </div>
+                            <div className="form-group col-md-6">{this.state.errors.name}</div>
+                            <div className="form-group col-md-6">{this.state.errors.enddate}</div>
                             </div>
                             <div className="form-row">
                             <div className="form-group col-md-6">
@@ -127,6 +249,8 @@ class ProjectDetails extends Component {
                                 </label>
                                 <input
                                     type="number"
+                                    value={this.state.fields.teamsize} 
+                                    onChange={this.handleChange}
                                     className="form-control"
                                     name="teamsize"
                                     required
@@ -138,11 +262,15 @@ class ProjectDetails extends Component {
                                 </label>
                                 <input
                                     type="number"
+                                    value={this.state.fields.budget} 
+                                    onChange={this.handleChange}
                                     className="form-control"
                                     name="budget"
                                     required
                                     />
                             </div>
+                            <div className="errorMsg">{this.state.errors.teamsize}</div>
+                            <div className="errorMsg">{this.state.errors.budget}</div>
                             </div>
                             <div className="form-row">
                             <div className="form-group col-md-6">
@@ -257,11 +385,13 @@ class ProjectDetails extends Component {
                                         className="form-check-label"
                                         >{`Skill Weight`}</label>
                                         <input
-                                        type="text"
-                                        name={skillweightId}
+                                        type="number"
+                                    
+                                        name="skillweight"
                                         data-id={idx}
                                         id={skillweightId}
-                                        value={teamMembers[idx].skillweight}
+                                        value={this.state.fields.skillweight}
+                                        onChange={this.handleChange}
                                         className="skillweight form-control"
                                         />
                                     </div>
@@ -272,11 +402,13 @@ class ProjectDetails extends Component {
                                         className="form-check-label"
                                         >{`Experience Weight`}</label>
                                         <input
-                                        type="text"
-                                        name={experienceweightId}
+                                        type="number"
+                                        
+                                        name="experienceweight"
                                         data-id={idx}
                                         id={experienceweightId}
-                                        value={teamMembers[idx].experienceweight}
+                                        value={this.state.fields.experienceweight}
+                                        onChange={this.handleChange}
                                         className="experienceweight form-control"
                                         />
                                     </div>
@@ -287,11 +419,13 @@ class ProjectDetails extends Component {
                                         className="form-check-label"
                                         >{`Hours Weight`}</label>
                                         <input
-                                        type="text"
-                                        name={hoursweightId}
+                                        type="number"
+                                      
+                                        name="hoursweight"
                                         data-id={idx}
                                         id={hoursweightId}
-                                        value={teamMembers[idx].hoursweight}
+                                        value={this.state.fields.hoursweight}
+                                        onChange={this.handleChange}
                                         className="hoursweight form-control"
                                         />
                                     </div>
@@ -302,11 +436,13 @@ class ProjectDetails extends Component {
                                         className="form-check-label"
                                         >{`Language Weight`}</label>
                                         <input
-                                        type="text"
-                                        name={languageweightId}
+                                        type="number"
+                                        max={100}
+                                        name="languageweight"
                                         data-id={idx}
                                         id={languageweightId}
-                                        value={teamMembers[idx].languageweight}
+                                        value={this.state.fields.languageweight}
+                                        onChange={this.handleChange}
                                         className="languageweight form-control"
                                         />
                                     </div>
@@ -317,15 +453,24 @@ class ProjectDetails extends Component {
                                         className="form-check-label"
                                         >{`Budget Weight`}</label>
                                         <input
-                                        type="text"
-                                        name={budgetweightId}
+                                        type="number"
+                                      
+                                        name="budgetweight"
                                         data-id={idx}
                                         id={budgetweightId}
-                                        value={teamMembers[idx].budgetweight}
+                                        value={this.state.fields.budgetweight}
+                                        onChange={this.handleChange}
                                         className="budgetweight form-control"
                                         />
                                     </div>
+                                    <div className="errorMsg">{this.state.errors.skillweight}</div>
+                                    <div className="errorMsg">{this.state.errors.experienceweight}</div>
+                                    <div className="errorMsg">{this.state.errors.hoursweight}</div>
+                                    <div className="errorMsg">{this.state.errors.languageweight}</div>
+                                    <div className="errorMsg">{this.state.errors.budgetweight}</div>
+                                    <div className="errorMsg">{this.state.errors.weight}</div>
                                 </div>
+
                             </div>
                             <br/>
                             </div>
