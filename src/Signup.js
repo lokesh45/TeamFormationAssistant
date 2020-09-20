@@ -29,8 +29,19 @@ class Signup extends Component {
   //   if (this.validateForm()) {
   //     this.setState({fields:fields});
   // }
+
   this.validateForm();
+
   }
+  contactSubmit(e){
+    
+
+    if(!this.validateForm()){
+      e.preventDefault();
+       alert("Form has errors please correct them");
+    }
+    
+}
   validateForm() {
     let fields = this.state.fields;
       let errors = {};
@@ -38,7 +49,7 @@ class Signup extends Component {
     if (typeof fields["name"] !== "undefined") {
       if (!fields["name"].match(/^[a-zA-Z ]*$/)) {
         formIsValid = false;
-        this.state.fields["name"]="";
+        // this.state.fields["name"]="";
         errors["name"] = "*Please enter alphabet characters only.";
       }
     }
@@ -47,28 +58,28 @@ class Signup extends Component {
     var datediff = date2.getFullYear()-date.getFullYear();
     if(datediff<18 || datediff>65){
       formIsValid = false;
-      this.state.fields["dob"]="";
+      // this.state.fields["dob"]="";
       errors["dob"] = "*Please enter a valid date.";
     }
     
     if (fields["skillscore"]<0 || fields["skillscore"]>100) {
       formIsValid = false;
-      this.state.fields["skillscore"]="";
+      // this.state.fields["skillscore"]="";
       errors["skillscore"] = "*Please enter a valid score.";
     }
     if (fields["experience"]<0 || fields["experience"]>30) {
       formIsValid = false;
-      this.state.fields["experience"]=0;
+      // this.state.fields["experience"]=0;
       errors["experience"] = "*Please enter a valid expereince.";
     }
     if (fields["hourlyrate"]<0 || fields["hourlyrate"]>250) {
       formIsValid = false;
-      this.state.fields["hourlyrate"]="";
+      // this.state.fields["hourlyrate"]="";
       errors["hourlyrate"] = "*Please enter a realistic hourlyrate.";
     }
     if (fields["availablehoursperweek"]<0 || fields["availablehoursperweek"]>100) {
       formIsValid = false;
-      this.state.fields["availablehoursperweek"]="";
+      // this.state.fields["availablehoursperweek"]="";
       errors["availablehoursperweek"] = "*Please enter a realistic available hours per week.";
     }
     this.setState({
@@ -112,7 +123,7 @@ class Signup extends Component {
       <Notify isShow={this.state.formflag} />
       <div className = "test">
         <div className="formblock">
-          <form method= 'post' align = 'center' action = 'http://localhost:3001/Signup' >
+          <form method= 'post' align = 'center' action = 'http://localhost:3001/Signup' onSubmit= {this.contactSubmit.bind(this)}>
               <div className="form-row">
                 <div className="form-group col-md-6">
                   <label htmlFor="name" className="form-check-label">Name</label>
@@ -168,7 +179,7 @@ class Signup extends Component {
                   <div className="errorMsg">{this.state.errors.availablehoursperweek}</div>
                 </div>
               </div>
-              <input type = 'submit'/>
+              <input type = 'submit' onSubmit />
             </form>
         </div>
       </div>
