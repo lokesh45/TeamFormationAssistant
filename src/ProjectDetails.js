@@ -177,15 +177,15 @@ class ProjectDetails extends Component {
                 <div className="headjs">
                     <div align="center">
                         <br />
-                        <NavLink to="/Home" className="btn btn-primary">
+                        <NavLink to="/TeamFormationAssistant/Home" className="btn btn-primary">
                             Home
                         </NavLink>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <NavLink to="/Signup" className="btn btn-primary">
+                        <NavLink to="/TeamFormationAssistant/Signup" className="btn btn-primary">
                             Signup
                         </NavLink>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <NavLink to="/ProjectDetails" className="btn btn-primary active">
+                        <NavLink to="/TeamFormationAssistant/ProjectDetails" className="btn btn-primary active">
                             ProjectDetails
                         </NavLink>
                         <h1>Team Formation Assistant</h1>
