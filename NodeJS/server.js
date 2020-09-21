@@ -49,12 +49,13 @@ app.post('/Signup',(req,res)=>{
 		});
 	}
 	//res.json('Form received...Thank You for signing up :D');
-	return res.redirect('http://lokesh45.github.io/TeamFormationAssistant/Signup/Success');
+	return res.redirect('http://localhost:3000/TeamFormationAssistant/Signup/Success');
 })
 
 app.post('/ProjectDetails',(req,res)=>{
 	console.log(req.body);
 	var records = [[req.body.name,req.body.enddate,req.body.teamsize,req.body.budget,req.body.tools,req.body.priority,0]];
+	console.log(records);
 	if(records[0][0]!=null)
 	{
 		con.query("INSERT INTO Project (ProjectName,ProjectEndDate,ProjectTeamSize,Budget,Tools,Priority,IsAssignmentComplete) VALUES ?",[records],function(err,res,fields){
@@ -63,13 +64,29 @@ app.post('/ProjectDetails',(req,res)=>{
 
 			console.log(res);
 		});
+		
+		var i=0;
+		var colname = 'languagepreferred'+i;
+		
+		while(colname in req.body){
+			var records = [[req.body.languagepreferred0,Number(req.body.skill0),req.body.memberrole0,Number(req.body.availablehoursperweek0),Number(req.body.skillweight[i]),Number(req.body.experienceweight[i]),Number(req.body.hoursweight[i]),Number(req.body.languageweight[i]),Number(req.body.budgetweight[i])]];
+			console.log(records);
+			con.query("CALL populateRequirements ?",[records],function(err,res,fields){
+
+				if(err) throw err;
+
+				console.log(res);
+			});
+			i += 1;
+			colname = 'languagepreferred'+i;
+		}
 	}
 	
 	//res.json('Form received...Thank You for signing up :D');
-    //execute the algorithm from here
-    fetch('http://localhost:5000/executeAlgo');
-
-	return res.redirect('http://lokesh45.github.io/TeamFormationAssistant/ProjectDetails/Success');
+	//execute the algorithm from here
+	fetch('http://localhost:5000/executeAlgo');
+	
+	return res.redirect('http://localhost:3000/TeamFormationAssistant/ProjectDetails/Success');
 })
 
 app.listen(3001,()=>{

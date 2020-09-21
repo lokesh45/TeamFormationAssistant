@@ -66,7 +66,7 @@ componentDidMount() {
       <div className = "test">
         <div className="formblock" align = 'center'>
             <ReactBootstrap.Table striped bordered hover>
-              <thead class="thead-dark">
+              <thead className="thead-dark">
                 <tr>
                   <th>Project ID</th>
                   <th>Project Name</th>
