@@ -33,6 +33,31 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Steps to run the application.
 
+### Flask 
+
+Set up Flask in order to use the python script as an api from NodeJS. Follow the steps in order to achieve this.<br />
+Go to the root of the repository and run 'cd api'.
+
+Set up a virtual environment.<br />
+For Unix-based systems,<br />
+  **$ python3 -m venv venv**<br />
+  **$ source venv/bin/activate**<br />
+   **(venv) $ _**<br /><br />
+For Windows based systems,<br />
+  **$ python -m venv venv**<br />
+  **$ venv\Scripts\activate**<br />
+   **(venv) $ _**<br /><br />
+
+Install flask and dotenv packages for python.<br />
+  **$ pip install flask python-dotenv**<br /><br />
+
+Now, run the Flask server<br />
+  **(venv) $ flask run**<br /><br />
+
+The api is now active on http://127.0.0.1:5000/
+
+### NodeJS
+
 1. First and foremost you need to install NodeJS in your system. Please use this link as a guide to setup NodeJs<br> https://nodejs.org/en/docs/guides
 
 2. Then Fork/Clone the repository.
@@ -91,6 +116,7 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
 
 ## Learn More
 
