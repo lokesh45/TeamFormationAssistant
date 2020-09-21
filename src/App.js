@@ -22,18 +22,18 @@ class App extends Component {
     <Switch>
       {/* If the current URL is /Signup, this route is rendered
           while the rest are ignored */}
-      <Route path="/Signup/Success">
+      <Route path="/TeamFormationAssistant/Signup/Success">
         <Signup formflag={true}/>
       </Route>
-      <Route path="/Signup">
+      <Route path="/TeamFormationAssistant/Signup">
         <Signup formflag={false} />
       </Route>
       {/* If the current URL is /ProjectDetails, this route is rendered
           while the rest are ignored */}
-      <Route path="/ProjectDetails/Success">
+      <Route path="/TeamFormationAssistant/ProjectDetails/Success">
         <ProjectDetails formflag={true} />
       </Route>
-      <Route path="/ProjectDetails">
+      <Route path="/TeamFormationAssistant/ProjectDetails">
         <ProjectDetails  formflag={false} />
       </Route>
 
@@ -43,7 +43,7 @@ class App extends Component {
           Important: A route with path="/" will *always* match
           the URL because all URLs begin with a /. So that's
           why we put this one last of all */}
-      <Route path="/">
+      <Route path="/TeamFormationAssistant">
         <Home />
       </Route>
     </Switch>
