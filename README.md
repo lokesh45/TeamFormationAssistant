@@ -33,17 +33,20 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Steps to run the application.
 
+Please ensure that python3 is already installed in the system.
+
 ### Flask 
 
 Set up Flask in order to use the python script as an api from NodeJS. Follow the steps in order to achieve this.<br />
 Go to the root of the repository and run 'cd api'.
 
 Set up a virtual environment.<br />
-For Unix-based systems,<br />
+For Unix-based systems, run<br />
   **$ python3 -m venv venv**<br />
   **$ source venv/bin/activate**<br />
    **(venv) $ _**<br /><br />
-For Windows based systems,<br />
+   
+For Windows based systems, run<br />
   **$ python -m venv venv**<br />
   **$ venv\Scripts\activate**<br />
    **(venv) $ _**<br /><br />
