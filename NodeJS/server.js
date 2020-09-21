@@ -83,7 +83,8 @@ app.post('/ProjectDetails',(req,res)=>{
 	}
 	
 	//res.json('Form received...Thank You for signing up :D');
-	//execute the algorithm from here
+	
+    //execute the algorithm from here
 	fetch('http://localhost:5000/executeAlgo');
 	
 	return res.redirect('http://localhost:3000/TeamFormationAssistant/ProjectDetails/Success');
