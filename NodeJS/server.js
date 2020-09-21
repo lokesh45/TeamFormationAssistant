@@ -49,7 +49,7 @@ app.post('/Signup',(req,res)=>{
 		});
 	}
 	//res.json('Form received...Thank You for signing up :D');
-	return res.redirect('http://localhost:3000/Signup/Success');
+	return res.redirect('http://lokesh45.github.io/TeamFormationAssistant/Signup/Success');
 })
 
 app.post('/ProjectDetails',(req,res)=>{
@@ -66,7 +66,10 @@ app.post('/ProjectDetails',(req,res)=>{
 	}
 	
 	//res.json('Form received...Thank You for signing up :D');
-	return res.redirect('http://localhost:3000/ProjectDetails/Success');
+    //execute the algorithm from here
+    fetch('http://localhost:5000/executeAlgo');
+
+	return res.redirect('http://lokesh45.github.io/TeamFormationAssistant/ProjectDetails/Success');
 })
 
 app.listen(3001,()=>{

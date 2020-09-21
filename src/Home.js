@@ -14,6 +14,7 @@ class Home extends Component {
 
 
 componentDidMount() {
+  //fetch('http://localhost:5000/executeAlgo');
   const apiUrl = 'http://localhost:3001/getResults';
   fetch(apiUrl)
     .then(response => response.json())
@@ -41,15 +42,15 @@ componentDidMount() {
       	<div className="headjs">
               <div align="center">
                   <br/>
-                  <NavLink to="/Home" className="btn btn-primary active">
+                  <NavLink to="/TeamFormationAssistant/Home" className="btn btn-primary active">
                     Home
                   </NavLink>
                   &nbsp;&nbsp;&nbsp;&nbsp;
-                  <NavLink to="/Signup" className="btn btn-primary">
+                  <NavLink to="/TeamFormationAssistant/Signup" className="btn btn-primary">
                     Signup
                   </NavLink>
                   &nbsp;&nbsp;&nbsp;&nbsp;
-                  <NavLink to="/ProjectDetails" className="btn btn-primary">
+                  <NavLink to="/TeamFormationAssistant/ProjectDetails" className="btn btn-primary">
                     ProjectDetails
                   </NavLink>
                   <h1>Team Formation Assistant</h1>

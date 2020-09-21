@@ -12,8 +12,8 @@ data.<br/>
 ➢ Write an algorithm which will take the project requirements, team
 members availability, skill level, tools preferred, etc. as input and assigns
 the members for the new team.<br/>
-## Video link for Project-1
-https://www.youtube.com/watch?v=LmKjp3aQPEI&feature=youtu.be <br/>
+## Video link
+[![Team Formation Assistant](https://github.com/lokesh45/TeamFormationAssistant/blob/master/Assistant.png)](https://www.youtube.com/watch?v=LmKjp3aQPEI&feature=youtu.be)
 ## How we plan to carry out the project
 ### Algorithm Implementation
 We plan to code the application in Python3. Python ML libraries will be used for
@@ -30,6 +30,58 @@ implement the dashboard and form using HTML, CSS, JavaScript
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Steps to run the application.
+
+Please ensure that python3 is already installed in the system.
+
+### Flask 
+
+Set up Flask in order to use the python script as an api from NodeJS. Follow the steps in order to achieve this.<br />
+Go to the root of the repository and run 'cd api'.
+
+Set up a virtual environment.<br />
+For Unix-based systems, run<br />
+  **$ python3 -m venv venv**<br />
+  **$ source venv/bin/activate**<br />
+   **(venv) $ _**<br /><br />
+   
+For Windows based systems, run<br />
+  **$ python -m venv venv**<br />
+  **$ venv\Scripts\activate**<br />
+   **(venv) $ _**<br /><br />
+
+Install flask and dotenv packages for python.<br />
+  **$ pip install flask python-dotenv**<br /><br />
+
+Now, run the Flask server<br />
+  **(venv) $ flask run**<br /><br />
+
+The api is now active on http://127.0.0.1:5000/
+
+### NodeJS
+
+1. First and foremost you need to install NodeJS in your system. Please use this link as a guide to setup NodeJs<br> https://nodejs.org/en/docs/guides
+
+2. Then Fork/Clone the repository.
+
+3. Open 2 different terminals and navigate to the repository.
+
+4. Open NodeJS folder in terminal-1 and run the command "node server.js". This would setup the server for the application. Do not close the terminal until unless you want to close the application itself. The server runs at port 3001 on the localhost. Here is the link:http://localhost:3001
+
+5. Now the next step is to run our client, for this in the home directory, using terminal-2 run the command "npm start". This would kick start your application and you will be navigated to the web page. The client runs at port 3000 on the localhost. Here is the link:http://localhost:3000
+
+#### Note
+
+If you face any errors in running the server or client dont worry that may be because of express version mismatch, Please run these commands in both home directory and NodeJS directory,
+
+1. node uninstall express.
+
+2. node install express.
+
+3. node install
+
+Running these 3 commands in both the locations, would help update the packages as per the requirement.
 
 ## Available Scripts
 
@@ -68,6 +120,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -97,3 +150,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+Here are a few screenshots of the project<br>
+<img src="Home.png" />
+<img src="Signup.png" />
+<img src="PD.png" />
+
+THANK YOU.
