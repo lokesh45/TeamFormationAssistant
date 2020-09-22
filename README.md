@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/lokesh45/TeamFormationAssistant.svg?branch=master)](https://travis-ci.org/lokesh45/TeamFormationAssistant)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8475.svg)](https://doi.org/10.5281/zenodo.8475)
 # Team Formation Assistant
 ## Problem Statement              
 Build an assistant which will take the project requirements, team members
