@@ -29,3 +29,12 @@ assignment.
 Final team assignment will posted on the homepage dashboard. We plan to
 implement the dashboard and form using HTML, CSS, JavaScript
 
+### Wiki
+[Wiki](https://github.com/lokesh45/TeamFormationAssistant/wiki)
+
+Here are a few screenshots of the project<br>
+![](https://github.com/lokesh45/TeamFormationAssistant/blob/master/ss1.jpeg)
+![](https://github.com/lokesh45/TeamFormationAssistant/blob/master/ss2.jpeg)
+![](https://github.com/lokesh45/TeamFormationAssistant/blob/master/ss3.jpeg)
+
+
