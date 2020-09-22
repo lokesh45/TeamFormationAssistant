@@ -24,8 +24,15 @@ def setEmployeeAssignement(employ):
         cursor.execute(sql,(1,employ))
         connection.commit()
 
+def setJobAssignement(job):
+    if connection.is_connected():
+        cursor = connection.cursor()
+        sql ="UPDATE Requirements SET IsAssigned= %s WHERE JobId= %s ;"
+        cursor.execute(sql,(1,job))
+        connection.commit()
+
 def memberToTeamMapping(MemberData,ProjectData,RequirementsData):
-    jobIDs = RequirementsData['JobId'].tolist()
+    jobIDs   = RequirementsData['JobId'].tolist()
     employee = MemberData.loc[MemberData['IsAssigned'] == 0]
     employee = employee['MemberId'].tolist()
     teamData = pd.DataFrame(columns = ['ProjectId', 'ProjectName', 'MemberId', 'MemberName']) 
@@ -67,6 +74,7 @@ def memberToTeamMapping(MemberData,ProjectData,RequirementsData):
             continue
         employee.remove(selectedEmploy)
         setEmployeeAssignement(int(selectedEmploy))
+        setJobAssignement(int(jobID))
         Member = MemberData.loc[MemberData['MemberId'] == selectedEmploy]
         MemberName = Member['MemberName'].tolist()[0]
         teamData = teamData.append({'ProjectId' :  ProjectId , 'ProjectName' : ProjectName, 'MemberId' : selectedEmploy, 'MemberName' : MemberName},  
@@ -85,11 +93,11 @@ def main():
         'HourlyRate','MemberRole','Experience','SkillScore','AvailableHoursPerWeek'])
         ProjectData = pd.DataFrame(Project_Query, columns=['ProjectId','ProjectName','ProjectEndDate','ProjectTeamSize','Budget',
         'Tools','IsAssignmentComplete','Priority'])
-        RequirementsData = pd.DataFrame(Requirements_Query, columns=['JobId','ProjectId','LanguagePreferred','Skill','MemberRole',
+        RequirementsData = pd.DataFrame(Requirements_Query, columns=['JobId','ProjectId','LanguagePreferred','IsAssigned' ,'Skill','MemberRole',
         'AvailableHoursPerWeek','SkillWeight','ExperienceWeight','HoursWeight','LanguageWeight','BudgetWeight'])
+        RequirementsData = RequirementsData.loc[RequirementsData['IsAssigned'] == 0]
         teamData = memberToTeamMapping(MemberData,ProjectData,RequirementsData)
         persistTeamData(teamData)
-        
 
 if __name__=="__main__": 
     main() 
