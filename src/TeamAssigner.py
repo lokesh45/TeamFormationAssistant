@@ -1,12 +1,5 @@
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
-import numpy as np
-import scipy
-import matplotlib.pyplot as plt
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import accuracy_score
 import mysql.connector
-import sys
 import math
 
 connection = mysql.connector.connect(
@@ -80,8 +73,6 @@ def memberToTeamMapping(MemberData,ProjectData,RequirementsData):
                 ignore_index = True)
     return teamData
         
-       
-
 def main():
     if connection.is_connected():
         Member_Query = pd.read_sql_query(
@@ -99,7 +90,6 @@ def main():
         teamData = memberToTeamMapping(MemberData,ProjectData,RequirementsData)
         persistTeamData(teamData)
         
-
 
 if __name__=="__main__": 
     main() 
