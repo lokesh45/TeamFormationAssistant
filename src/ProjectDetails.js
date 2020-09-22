@@ -331,7 +331,7 @@ class ProjectDetails extends Component {
                                         <label
                                         htmlFor={skillId}
                                         className="form-check-label"
-                                        >{`Skill`}</label>
+                                        >{`Minimum Skill/Assesment Score(On a scale of 1-100)`}</label>
                                         <input
                                         type="text"
                                         name={skillId}
