@@ -1,5 +1,6 @@
+[![Build Status](https://travis-ci.org/lokesh45/TeamFormationAssistant.svg?branch=master)](https://travis-ci.org/lokesh45/TeamFormationAssistant)
 # Team Formation Assistant
-## Problem Statement
+## Problem Statement              
 Build an assistant which will take the project requirements, team members
 availability, skill level, tools preferred, etc. as input and assigns the members for
 the new team.
