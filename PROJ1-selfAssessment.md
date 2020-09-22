@@ -1,4 +1,4 @@
-Total score: 119/(49*4) = 61%
+Total score: 123/(49*4) = 63%
 
 -   write down "4" into every right-hand-side cell
 -   Look for evidence that any "4" should be something else
