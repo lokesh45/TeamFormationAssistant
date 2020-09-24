@@ -21,7 +21,7 @@ the members for the new team.<br/>
 We plan to code the application in Python3. Python ML libraries will be used for
 Cluster identification.<br/>
 ### Database Implementation:
-We plan to store team members into an oracle database. Python files import the
+We plan to store team members into an MySQL database. Python files import the
 data and process it and store the final result back to the database.<br/>
 ### Frontend Implementation:
 Team members will be able to submit a form to consider them as part of project
