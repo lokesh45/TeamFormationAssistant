@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/TeamFormationAssistant/static/css/main.b3f52b16.chunk.css",
+    "main.js": "/TeamFormationAssistant/static/js/main.8c20aba6.chunk.js",
+    "main.js.map": "/TeamFormationAssistant/static/js/main.8c20aba6.chunk.js.map",
+    "runtime-main.js": "/TeamFormationAssistant/static/js/runtime-main.6ef79560.js",
+    "runtime-main.js.map": "/TeamFormationAssistant/static/js/runtime-main.6ef79560.js.map",
+    "static/js/2.3e6df6d8.chunk.js": "/TeamFormationAssistant/static/js/2.3e6df6d8.chunk.js",
+    "static/js/2.3e6df6d8.chunk.js.map": "/TeamFormationAssistant/static/js/2.3e6df6d8.chunk.js.map",
+    "index.html": "/TeamFormationAssistant/index.html",
+    "precache-manifest.ed7afbfac7e86b606dbd008aeddd216d.js": "/TeamFormationAssistant/precache-manifest.ed7afbfac7e86b606dbd008aeddd216d.js",
+    "service-worker.js": "/TeamFormationAssistant/service-worker.js",
+    "static/css/main.b3f52b16.chunk.css.map": "/TeamFormationAssistant/static/css/main.b3f52b16.chunk.css.map",
+    "static/js/2.3e6df6d8.chunk.js.LICENSE.txt": "/TeamFormationAssistant/static/js/2.3e6df6d8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6ef79560.js",
+    "static/js/2.3e6df6d8.chunk.js",
+    "static/css/main.b3f52b16.chunk.css",
+    "static/js/main.8c20aba6.chunk.js"
+  ]
+}
