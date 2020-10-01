@@ -7,10 +7,7 @@
 7. Hosting the website on to AWS.
 8. Improve error handling to display relevant error messages instead of generic error messages on the front end.
 9. Include test cases for frontend and backend testing as well as end-to-end testing.
-10. Call the test suite from .travis.yml. 
+10. Continuous testing using TRAVIS
 11. Create end-to-end flow by integrating separate code chunks of NodeJs, JavaScript and Flask.
-
-
-
-
-
+12. Restructure the code to logically seperate different sections in the code base
+13. Add syntax checkers, linters, code formatters, remove redundant files from gitignore, add more badges
