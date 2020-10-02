@@ -1,17 +1,8 @@
-language: node_js
-node_js:
-  - 12.18.3
-cache: npm
-
+language: python
+python: 
+    - "3.6"
+    - "3.7"
 install:
-  - npm ci
+    - pip install -r requirements.txt
 script:
-  - npm test
-  - npm run build 
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  local_dir: build
-  on:
-    branch: master
+    - python -m pytest
