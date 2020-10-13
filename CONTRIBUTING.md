@@ -8,6 +8,7 @@ This project and everyone participating in it is governed by the [TeamFormationA
 * After you submit your pull request, verify that all status checks are passing
 * Give description and comments to help the reviewers understand the changes.
 * Make sure to update the relevant file changes on README.md
+* Package-lock.json is required for travis CI to run, so do not add it to .gitignore
 
 ### Git Commit Messages
 * Use the present tense.

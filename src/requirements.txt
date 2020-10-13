@@ -1,9 +1,0 @@
-mysql-connector-python==8.0.21
-numpy==1.19.2
-pandas==1.1.2
-protobuf==3.13.0
-python-dateutil==2.8.1
-pytz==2020.1
-six==1.15.0
-python-dotenv==0.14.0
-Flask==1.1.2
