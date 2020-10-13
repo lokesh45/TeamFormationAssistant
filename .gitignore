@@ -1,7 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
 /.pnp
 .pnp.js
 
@@ -50,6 +49,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+package-lock.json
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -133,6 +133,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.idea
+node_modules/
 
 # Spyder project settings
 .spyderproject
@@ -154,3 +156,5 @@ dmypy.json
 
 *.css linguist-detectable=false
 *.html linguist-detectable=false
+
+/NodeJS/node_modules/*
