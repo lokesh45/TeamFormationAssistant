@@ -157,4 +157,4 @@ dmypy.json
 *.css linguist-detectable=false
 *.html linguist-detectable=false
 
-/NodeJS/node_modules/
+/NodeJS/node_modules/*
