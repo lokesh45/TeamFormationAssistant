@@ -19,6 +19,9 @@ class App extends Component {
   render(){
   return (
     <div>
+      <Route exact path="/">
+        <Home />
+      </Route>
     <Switch>
       {/* If the current URL is /Signup, this route is rendered
           while the rest are ignored */}
