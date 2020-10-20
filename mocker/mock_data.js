@@ -29,8 +29,8 @@ if (process.argv.length !== 4) {
         "Please provide the number of members and projects you would like to generate."
     );
 }
-const numMembers = Number(process.argv[2]);
-const numProjects = Number(process.argv[3]);
+const numMembers = 25;
+const numProjects = 40;
 if (isNaN(numMembers) || isNaN(numProjects)) {
     console.error("The number of members and projects must be numeric.");
 }
