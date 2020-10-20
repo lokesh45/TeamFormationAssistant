@@ -17,6 +17,7 @@ data.<br/>
 members availability, skill level, tools preferred, etc. as input and assigns
 the members for the new team.<br/>
 ## Video link
+[![Team Formation Assistant Project 2](https://github.com/lokesh45/TeamFormationAssistant/blob/master/Assistant.png)](https://www.youtube.com/watch?v=U7m2TXdxnak)
 [![Team Formation Assistant](https://github.com/lokesh45/TeamFormationAssistant/blob/master/Assistant.png)](https://www.youtube.com/watch?v=LmKjp3aQPEI&feature=youtu.be)
 ## How we plan to carry out the project
 ### Algorithm Implementation
