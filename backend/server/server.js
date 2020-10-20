@@ -90,7 +90,7 @@ app.post('/ProjectDetails',(req,res)=>{
 	return res.redirect('http://localhost:3000/TeamFormationAssistant/ProjectDetails/Success');
 })
 
-app.listen(3001,()=>{
+app.listen(8080, ()=>{
   console.log("Port 3001");
 })
 
