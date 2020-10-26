@@ -1,3 +1,4 @@
+from mysql.connector import connect
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 import numpy as np
@@ -9,11 +10,18 @@ import mysql.connector
 import sys
 import math
 
+# connection = mysql.connector.connect(
+#     host="database",
+#     database='teamformationassistant',
+#     user="dbuser",
+#     password="dbuserpwd"
+# )
+
 connection = mysql.connector.connect(
-    host="database",
-    database='teamformationassistant',
-    user="dbuser",
-    password="dbuserpwd"
+host="sefall2021.cosnmrdyk6wi.us-east-2.rds.amazonaws.com",
+database='teamformationassistant',
+user="root",
+password="SEFall2021"
 )
     
 def persistTeamData(teamData):
@@ -24,12 +32,12 @@ def persistTeamData(teamData):
             cursor.execute(sql,(str(teamData.loc[row, 'ProjectId']),str(teamData.loc[row, 'ProjectName']),str(teamData.loc[row, 'MemberId']),str(teamData.loc[row, 'MemberName'])))
         connection.commit()
 
-def setEmployeeAssignement(employ):
-    if connection.is_connected():
-        cursor = connection.cursor()
+def setEmployeeAssignement(employ, conn):
+    if conn.is_connected():
+        cursor = conn.cursor()
         sql ="UPDATE Member SET IsAssigned= %s WHERE MemberId = %s ;"
         cursor.execute(sql,(1,employ))
-        connection.commit()
+        conn.commit()
 
 def memberToTeamMapping(MemberData,ProjectData,RequirementsData):
     jobIDs = RequirementsData['JobId'].tolist()
@@ -73,7 +81,7 @@ def memberToTeamMapping(MemberData,ProjectData,RequirementsData):
         if (selectedEmploy not in employee):
             continue
         employee.remove(selectedEmploy)
-        setEmployeeAssignement(int(selectedEmploy))
+        setEmployeeAssignement(int(selectedEmploy), connection)
         Member = MemberData.loc[MemberData['MemberId'] == selectedEmploy]
         MemberName = Member['MemberName'].tolist()[0]
         teamData = teamData.append({'ProjectId' :  ProjectId , 'ProjectName' : ProjectName, 'MemberId' : selectedEmploy, 'MemberName' : MemberName},  
